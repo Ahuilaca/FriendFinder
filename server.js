@@ -1,19 +1,19 @@
-var express = require('express')
+var express = require("express");
+var bodyParser = require("body-parser");
+var path = require("path");
 var app = express();
-// var bodyParser = require("body-parser")
 
-var PORT = process.env.PORT || 8080
+var port = process.env.PORT || 8080;
 
-// // create application/json parser
-// var jsonParser = bodyParser.json()
- 
-// // create application/x-www-form-urlencoded parser
-// var urlencodedParser = bodyParser.urlencoded({ extended: false })
+// Data parsing (not sure how this is working)
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-require("./app/routing/apiRoutes.js")(app);
-require("./app/routing/htmlRoutes.js")(app);
+// Routes
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
-app.listen(PORT, function () {
-    console.log("App listening on PORT: " + PORT);
-})
+app.listen(port, function() {
+    console.log("App listening on PORT " + port);
+});
 

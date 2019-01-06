@@ -1,58 +1,52 @@
-var friends = require("../data/friends.js");
-var path = require("path");
+var friends = require('../data/friends.js');
 
 module.exports = function (app) {
 
-    app.get("/api/friends", function (req, res) {
+    app.get('/api/friends', function (req, res) {
         res.json(friends);
     });
 
-    app.post("/api/friends", function (req, res) {
+    app.post('/api/friends', function (req, res) {
 
+        // Looping through friends
         var friendMatch = {
             name: "",
             photo: "",
             friendDifference: 1000
         };
 
-        console.log(req.friends);
-
-        // Here we take the result of the users survey and parse it.
+        // Parsing user input
         var userData = req.body;
         var userScores = userData.scores;
 
-        console.log(userScores);
-
-        // Calculating difference between users scores and scores of each use in database
+        // Calculating difference between user scores and possible friends
         var totalDifference = 0;
 
-        // Looping through all friends in the database.
-        for (var i = 0; i < friends.length; i++) {
-            console.log(friends[i]);
+        // Looping through friends data to get scores
+        for (var i = 0; i < friends.length - 1; i++) {
+            console.log(friends[i].name);
             totalDifference = 0;
 
-            // Looping through similarities and differences
-            for (var j = 0; j < friends.length; j++) {
+            // Looping through friend scores and user scores. Calculating differences.
+            for (var j = 0; j < 10; j++) {
 
-                // Calculating differecne between scores and summing them into totalDifference
+                // Calculate differences and adding to totalDifference
                 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
-                // If the sum of differences is less than the difference of the current friend match
-                if (totalDiffenece <= friendMatch.friendDifference) {
+                // If differences in scores is less then the differences of the current friend match.
+                if (totalDifference <= friendMatch.friendDifference) {
 
-                    // Reset the friend match to be the new friend
+                    // Closest match becomes new friend. 
                     friendMatch.name = friends[i].name;
                     friendMatch.photo = friends[i].photo;
                     friendMatch.friendDifference = totalDifference;
-
                 }
             }
         }
 
-        // Push users data to the database
+        // Pushing user data to the database
         friends.push(userData);
 
-        // Return a json with the users friend match. (To be used by the HTML in the next page)
         res.json(friendMatch);
     });
-}
+};

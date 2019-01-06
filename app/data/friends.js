@@ -1,66 +1,69 @@
+
+// I didn't have time to add links to any photos
+
 var friends = [
     {
-        name: "John doe",
+        name: "Homer Simpson",
         photo: "https://",
         scores: [
-            "5",
+            "4",
+            "4",
+            "4",
+            "4",
+            "4",
             "3",
-            "4",
-            "4",
-            "5",
+            "3",
+            "3",
+            "3",
+            "3"
+        ]
+    },
+    {
+        name: "Marge Simpson",
+        photo: "https://",
+        scores: [
             "1",
-            "4",
-            "4",
-            "5",
+            "2",
+            "3",
+            "1",
+            "2",
+            "3",
+            "1",
+            "2",
+            "3",
             "1"
         ]
     },
     {
-        name: "Henry doe",
+        name: "Al Bundy",
         photo: "https://",
         scores: [
             "5",
-            "3",
-            "4",
-            "4",
             "5",
-            "1",
-            "4",
-            "4",
             "5",
-            "1"
+            "5",
+            "5",
+            "5",
+            "5",
+            "5",
+            "5",
+            ""
         ]
     },
     {
-        name: "Jane doe",
+        name: "Peggy Bundy",
         photo: "https://",
         scores: [
-            "5",
             "3",
-            "4",
-            "4",
-            "5",
-            "1",
-            "4",
-            "4",
-            "5",
-            "1"
-        ]
-    },
-    {
-        name: "The Fonze",
-        photo: "https://",
-        scores: [
-            "5",
             "3",
-            "4",
-            "4",
-            "5",
-            "1",
-            "4",
-            "4",
-            "5",
-            "1"
+            "3",
+            "3",
+            "3",
+            "3",
+            "3",
+            "3",
+            "3",
+            "3"
         ]
     },
     {
@@ -68,18 +71,17 @@ var friends = [
         photo: "https://",
         scores: [
             "5",
-            "3",
-            "4",
             "4",
             "5",
-            "1",
-            "4",
             "4",
             "5",
-            "1"
+            "4",
+            "5",
+            "5",
+            "5",
+            "5"
         ]
     },
-
 ];
 
 module.exports = friends;
